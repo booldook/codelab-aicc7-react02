@@ -34,7 +34,8 @@ module.exports = {
   },
   resolve: {
     // import Coxx from "../comxx/Coxx[.js]" // 확장자 생략 가능
-    extentions: [".js", ".jsx"],
+    extensions: [".js", ".jsx"],
+    fullySpecified: false, // ESM에서도 확장자 생략
   },
   plugins: [
     new HtmlWebpackPlugin({
