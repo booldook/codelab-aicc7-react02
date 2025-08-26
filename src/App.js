@@ -1,10 +1,15 @@
 import React from "react";
+import "font-awesome/css/font-awesome.min.css";
+import "../public/css/fonts.css";
+import "../public/css/base.css";
+import "../public/css/shop.css";
+import Containers from "./components/Containers";
 
 function App() {
   return (
-    <div>
-      <h1>Hello React</h1>
-    </div>
+    <>
+      <Containers />
+    </>
   );
 }
 

@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/booldook/codelab-aicc7-react02#readme",
   "dependencies": {
+    "axios": "^1.11.0",
+    "font-awesome": "^4.7.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
