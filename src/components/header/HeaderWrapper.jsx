@@ -1,4 +1,5 @@
-import { Typography, Breadcrumbs, Box, Link } from "@mui/material"
+import { Typography, Breadcrumbs, Box } from "@mui/material"
+import { Link } from "react-router-dom"
 
 export default function HeaderWrapper() {
   return (
@@ -9,16 +10,19 @@ export default function HeaderWrapper() {
         justifyContent: "space-between",
       }}
     >
-      <Typography variant="h4">Booldook</Typography>
-
+      <Typography variant="h4" component={Link} to="/">
+        Booldook
+      </Typography>
       <Breadcrumbs>
-        <Link underline="hover" color="inherit" href="//naver.com">
+        <Typography component={Link} to="/shop">
           SHOP
-        </Link>
-        <Link underline="hover" color="inherit" href="/material-ui/getting-started/installation/">
+        </Typography>
+        <Typography component={Link} to="/board">
           BOARD
-        </Link>
-        <Typography>CHAT</Typography>
+        </Typography>
+        <Typography component={Link} to="/chat">
+          CHAT
+        </Typography>
       </Breadcrumbs>
     </Box>
   )
