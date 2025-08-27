@@ -82,8 +82,8 @@ module.exports = {
   },
   performance: {
     hints: "warning",
-    maxAssetSize: 200000,
-    maxEntrypointSize: 400000,
+    maxAssetSize: 20000000,
+    maxEntrypointSize: 40000000,
     assetFilter: function (assetFilename) {
       return assetFilename.endsWith(".js")
     },

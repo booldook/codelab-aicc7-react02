@@ -1,44 +1,10 @@
-import { useState } from "react"
-import axios from "axios"
+import { Container } from "@mui/material"
+import HeaderWrapper from "./header/HeaderWrapper"
 
-import FormWrapper from "./FormWrapper"
-import PrdWrap from "./PrdWrap"
-
-const Containers = (props) => {
-  const [prdList, setPrdList] = useState([])
-  const [searchList, setSearchList] = useState([])
-  const onGetPrd = async (e) => {
-    const { data } = await axios.get("/mock/prd.json")
-    setPrdList(data?.list || [])
-    setSearchList(data?.list || [])
-  }
-  const onResetPrd = (e) => {
-    setPrdList([])
-    setSearchList([])
-  }
-  const onChangeSearch = (search) => {
-    if (search === "") {
-      setSearchList(prdList)
-    } else {
-      const searchedList = prdList.filter((prd) => {
-        return (
-          prd.title.toLowerCase().includes(search.toLowerCase()) ||
-          prd.description.toLowerCase().includes(search.toLowerCase())
-        )
-      })
-      setSearchList(searchedList)
-    }
-  }
+export default function Containers() {
   return (
-    <div className="containers">
-      <FormWrapper onGetPrd={onGetPrd} onResetPrd={onResetPrd} onChangeSearch={onChangeSearch} />
-      <div className="prd-wrapper">
-        {searchList.map((prd, idx) => (
-          <PrdWrap key={idx} img={prd.img} title={prd.title} description={prd.description} />
-        ))}
-      </div>
-    </div>
+    <Container>
+      <HeaderWrapper />
+    </Container>
   )
 }
-
-export default Containers

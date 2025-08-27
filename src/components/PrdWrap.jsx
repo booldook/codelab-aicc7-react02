@@ -1,4 +1,4 @@
-const PrdWrap = ({ children, img, title, description }) => {
+const PrdWrap = ({ img, title, description }) => {
   return (
     <div className="prd-wrap">
       <img src={img} className="img" />
