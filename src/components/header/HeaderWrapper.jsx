@@ -1,24 +1,25 @@
-import Typography from "@mui/material/Typography"
-import Breadcrumbs from "@mui/material/Breadcrumbs"
-import Link from "@mui/material/Link"
+import { Typography, Breadcrumbs, Box, Link } from "@mui/material"
 
-function handleClick(event) {
-  event.preventDefault()
-  console.info("You clicked a breadcrumb.")
-}
-
-export default function BasicBreadcrumbs() {
+export default function HeaderWrapper() {
   return (
-    <div role="presentation" onClick={handleClick}>
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="inherit" href="/">
-          MUI
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <Typography variant="h4">Booldook</Typography>
+
+      <Breadcrumbs>
+        <Link underline="hover" color="inherit" href="//naver.com">
+          SHOP
         </Link>
         <Link underline="hover" color="inherit" href="/material-ui/getting-started/installation/">
-          Core
+          BOARD
         </Link>
-        <Typography sx={{ color: "text.primary" }}>Breadcrumbs</Typography>
+        <Typography>CHAT</Typography>
       </Breadcrumbs>
-    </div>
+    </Box>
   )
 }
