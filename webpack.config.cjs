@@ -1,7 +1,7 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
-const ESLintPlugin = require("eslint-webpack-plugin");
-const path = require("path");
+const ESLintPlugin = require("eslint-webpack-plugin")
+const path = require("path")
 
 module.exports = {
   mode: "development",
@@ -68,4 +68,4 @@ module.exports = {
     hot: true,
     open: true,
   },
-};
+}
