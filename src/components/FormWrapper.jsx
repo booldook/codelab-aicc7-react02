@@ -1,25 +1,19 @@
-import { useState } from "react";
+import { useState } from "react"
 
 const FormWrapper = ({ children, onGetPrd, onResetPrd, onChangeSearch }) => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("")
   const onChange = (e) => {
-    setSearch(e.target.value);
-    onChangeSearch(e.target.value);
-  };
+    setSearch(e.target.value)
+    onChangeSearch(e.target.value)
+  }
   const onDeleteSearch = (e) => {
-    setSearch("");
-    onChangeSearch("");
-  };
+    setSearch("")
+    onChangeSearch("")
+  }
   return (
     <div className="form-wrapper">
       <form className="form-wrap">
-        <input
-          type="text"
-          className="search-input"
-          onChange={onChange}
-          value={search}
-          autoFocus
-        />
+        <input type="text" className="search-input" onChange={onChange} value={search} autoFocus />
         <span
           className={`fa fa-times btn-delete ${search ? "active" : ""}`}
           onClick={onDeleteSearch}
@@ -28,8 +22,8 @@ const FormWrapper = ({ children, onGetPrd, onResetPrd, onChangeSearch }) => {
       <button
         className="btn"
         onClick={(e) => {
-          onGetPrd(e);
-          setSearch("");
+          onGetPrd(e)
+          setSearch("")
         }}
       >
         상품가져오기
@@ -37,14 +31,14 @@ const FormWrapper = ({ children, onGetPrd, onResetPrd, onChangeSearch }) => {
       <button
         className="btn"
         onClick={(e) => {
-          onResetPrd(e);
-          setSearch("");
+          onResetPrd(e)
+          setSearch("")
         }}
       >
         상품지우기
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default FormWrapper;
+export default FormWrapper

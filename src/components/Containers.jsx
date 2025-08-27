@@ -1,53 +1,44 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState } from "react"
+import axios from "axios"
 
-import FormWrapper from "./FormWrapper";
-import PrdWrap from "./PrdWrap";
+import FormWrapper from "./FormWrapper"
+import PrdWrap from "./PrdWrap"
 
 const Containers = (props) => {
-  const [prdList, setPrdList] = useState([]);
-  const [searchList, setSearchList] = useState([]);
+  const [prdList, setPrdList] = useState([])
+  const [searchList, setSearchList] = useState([])
   const onGetPrd = async (e) => {
-    const { data } = await axios.get("/mock/prd.json");
-    setPrdList(data?.list || []);
-    setSearchList(data?.list || []);
-  };
+    const { data } = await axios.get("/mock/prd.json")
+    setPrdList(data?.list || [])
+    setSearchList(data?.list || [])
+  }
   const onResetPrd = (e) => {
-    setPrdList([]);
-    setSearchList([]);
-  };
+    setPrdList([])
+    setSearchList([])
+  }
   const onChangeSearch = (search) => {
     if (search === "") {
-      setSearchList(prdList);
+      setSearchList(prdList)
     } else {
       const searchedList = prdList.filter((prd) => {
         return (
           prd.title.toLowerCase().includes(search.toLowerCase()) ||
           prd.description.toLowerCase().includes(search.toLowerCase())
-        );
-      });
-      setSearchList(searchedList);
+        )
+      })
+      setSearchList(searchedList)
     }
-  };
+  }
   return (
     <div className="containers">
-      <FormWrapper
-        onGetPrd={onGetPrd}
-        onResetPrd={onResetPrd}
-        onChangeSearch={onChangeSearch}
-      />
+      <FormWrapper onGetPrd={onGetPrd} onResetPrd={onResetPrd} onChangeSearch={onChangeSearch} />
       <div className="prd-wrapper">
         {searchList.map((prd, idx) => (
-          <PrdWrap
-            key={idx}
-            img={prd.img}
-            title={prd.title}
-            description={prd.description}
-          />
+          <PrdWrap key={idx} img={prd.img} title={prd.title} description={prd.description} />
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Containers;
+export default Containers

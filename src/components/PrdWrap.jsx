@@ -5,7 +5,7 @@ const PrdWrap = ({ children, img, title, description }) => {
       <h2 className="title">{title}</h2>
       <div className="description">{description}</div>
     </div>
-  );
-};
+  )
+}
 
-export default PrdWrap;
+export default PrdWrap

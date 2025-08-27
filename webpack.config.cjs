@@ -45,11 +45,14 @@ module.exports = {
       template: "./index.html",
     }),
     new ESLintPlugin({
+      configType: "flat",
       context: path.resolve(__dirname, "src"),
       extensions: [".js", ".jsx"],
-      exclude: ["node_modules"],
-      fix: true,
+      exclude: ["node_modules", "dist"],
+      overrideConfigFile: "./eslint.config.cjs",
+      emitError: true,
       emitWarning: true,
+      failOnError: true,
     }),
   ],
   devServer: {
