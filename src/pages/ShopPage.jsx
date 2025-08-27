@@ -1,8 +1,8 @@
 import { useState } from "react"
 import axios from "axios"
 
-import FormWrapper from "./FormWrapper"
-import PrdWrap from "./PrdWrap"
+import FormWrapper from "../components/shop/FormWrapper"
+import PrdWrap from "../components/shop/PrdWrap"
 
 export default function ShopPage() {
   const [prdList, setPrdList] = useState([])
