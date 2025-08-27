@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
+  entry: "./src/main.jsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.[contenthash].js",
@@ -40,7 +40,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: "./index.html",
     }),
   ],
   devServer: {
