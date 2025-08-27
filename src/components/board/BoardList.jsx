@@ -13,11 +13,19 @@ import axios from "axios"
 export default function BoardList() {
   const [list, setList] = useState([])
 
-  useEffect(() => {
+  const getPosts = async () => {
     const url = "https://jsonplaceholder.typicode.com/posts"
-    axios.get(url).then((response) => {
-      setList(response.data)
-    })
+    const { data } = await axios.get(url)
+    setList(data)
+  }
+
+  useEffect(() => {
+    // ;(async () => {
+    //   const url = "https://jsonplaceholder.typicode.com/posts"
+    //   const { data } = await axios.get(url)
+    //   setList(data)
+    // })()
+    getPosts()
   }, [])
 
   return (
@@ -31,7 +39,7 @@ export default function BoardList() {
         </TableHead>
         <TableBody>
           {list.map((row) => (
-            <TableRow key={row.name} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+            <TableRow key={row.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
               <TableCell component="th" scope="row">
                 {row.id}
               </TableCell>
